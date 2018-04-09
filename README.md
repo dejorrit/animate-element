@@ -28,3 +28,7 @@ new AnimateElement(myElement, {
 	opacity: .75,
 });
 ```
+
+Note: values are absolute. That means setting the width to `100` 
+means the element will be `100px` wide. Regardless of the current
+width of the element.
