@@ -1,6 +1,6 @@
 {
   "name": "animate-element",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easily animate CSS properties using requestAnimationFrame",
   "main": "dist/animate-element.min.js",
   "repository": "https://github.com/dejorrit/animate-element",
