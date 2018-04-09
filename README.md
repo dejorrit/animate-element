@@ -23,12 +23,12 @@ import AnimateElement from 'animate-element';
 let myElement = document.getElementById('#myElement');
  
 new AnimateElement(myElement, {
-	width: 100, // px
-	height: 200, // px
-	opacity: .75,
+	width: 100,    // it accepts
+	height: 200,   // pixels
+	opacity: .75,  // and unitless values
 }, {
-	duration: 250,
-	easing: true,
+	duration: 100, // defaults to 250
+	easing: true,  // defaults to false
 });
 ```
 
