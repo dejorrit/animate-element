@@ -9,8 +9,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var AnimateElement = function () {
-	function AnimateElement(element, properties, options) {
+	function AnimateElement(element, properties) {
 		var _this = this;
+
+		var options = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
 		_classCallCheck(this, AnimateElement);
 
