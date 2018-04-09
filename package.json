@@ -1,0 +1,20 @@
+{
+  "name": "animate-element",
+  "version": "0.0.1",
+  "description": "Easily animate CSS properties using requestAnimationFrame",
+  "main": "dist/animate-element.min.js",
+  "repository": "https://github.com/dejorrit/animate-element",
+  "author": "Jorrit Tinholt",
+  "license": "MIT",
+  "dev-dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-babili": "^0.1.4",
+    "babel-preset-env": "^1.6.1"
+  },
+  "scripts": {
+    "build": "yarn run build_minified; yarn run build_not_minified",
+    "build_minified": "NODE_ENV=production npx babel src/animate-element.js --out-file dist/animate-element.min.js",
+    "build_not_minified": "npx babel src/animate-element.js --out-file dist/animate-element.js",
+    "watch": "npx babel src/animate-element.js --out-file dist/animate-element.js --watch"
+  }
+}
