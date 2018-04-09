@@ -1,9 +1,10 @@
 export default class AnimateElement {
 
-	constructor(element, properties, duration) {
+	constructor(element, properties, options) {
 		this.element     = element;
 		this.properties  = properties;
-		this.duration    = duration;
+		this.duration    = options.duration || 250;
+		this.easing      = options.easing || false;
 		this.starttime   = null;
 		this.startStyles = window.getComputedStyle(element);
 
@@ -25,7 +26,7 @@ export default class AnimateElement {
 			let unit = this.startStyles[key].indexOf('px') !== -1 ? 'px' : '';
 
 			let startValue = parseInt(this.startStyles[key], 10);
-			let newValue   = startValue + ((val - startValue) * ease(progress));
+			let newValue   = startValue + ((val - startValue) * this.easing ? ease(progress) : progress);
 
 			this.element.style[key] = newValue + unit;
 		});
