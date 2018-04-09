@@ -26,7 +26,7 @@ export default class AnimateElement {
 			let unit = this.startStyles[key].indexOf('px') !== -1 ? 'px' : '';
 
 			let startValue = parseInt(this.startStyles[key], 10);
-			let newValue   = startValue + ((val - startValue) * this.easing ? ease(progress) : progress);
+			let newValue   = startValue + ((val - startValue) * (this.easing ? ease(progress) : progress));
 
 			this.element.style[key] = newValue + unit;
 		});
