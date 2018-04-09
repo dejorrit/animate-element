@@ -1,5 +1,6 @@
 {
   "name": "animate-element",
+  "keywords": ["css", "animation", "css-animation", "requestanimationframe", "transform"],
   "version": "0.0.2",
   "description": "Easily animate CSS properties using requestAnimationFrame",
   "main": "dist/animate-element.min.js",
