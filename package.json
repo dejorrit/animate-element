@@ -1,7 +1,13 @@
 {
   "name": "animate-element",
-  "keywords": ["css", "animation", "css-animation", "requestanimationframe", "transform"],
-  "version": "0.0.2",
+  "keywords": [
+    "css",
+    "animation",
+    "css-animation",
+    "requestanimationframe",
+    "transform"
+  ],
+  "version": "0.0.3",
   "description": "Easily animate CSS properties using requestAnimationFrame",
   "main": "dist/animate-element.min.js",
   "repository": "https://github.com/dejorrit/animate-element",
