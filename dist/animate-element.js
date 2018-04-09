@@ -45,7 +45,7 @@ var AnimateElement = function () {
 				var unit = _this2.startStyles[key].indexOf('px') !== -1 ? 'px' : '';
 
 				var startValue = parseInt(_this2.startStyles[key], 10);
-				var newValue = startValue + ((val - startValue) * _this2.easing ? ease(progress) : progress);
+				var newValue = startValue + (val - startValue) * (_this2.easing ? ease(progress) : progress);
 
 				_this2.element.style[key] = newValue + unit;
 			});
