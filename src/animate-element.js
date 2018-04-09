@@ -1,6 +1,6 @@
 export default class AnimateElement {
 
-	constructor(element, properties, options) {
+	constructor(element, properties, options = {}) {
 		this.element     = element;
 		this.properties  = properties;
 		this.duration    = options.duration || 250;
