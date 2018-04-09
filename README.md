@@ -32,6 +32,6 @@ new AnimateElement(myElement, {
 });
 ```
 
-Note: values are absolute. That means setting the width to `100` 
-means the element will be `100px` wide. Regardless of the current
-width of the element.
+Note: values are absolute. So setting a width of `100`  means the element 
+will animate untill it is `100px` wide, regardless of the current width of 
+the element.
