@@ -7,7 +7,7 @@
     "requestanimationframe",
     "transform"
   ],
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Easily animate CSS properties using requestAnimationFrame",
   "main": "dist/animate-element.min.js",
   "repository": "https://github.com/dejorrit/animate-element",
