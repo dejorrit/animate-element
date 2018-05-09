@@ -20,12 +20,17 @@ var AnimateElement = function () {
 		this.properties = properties;
 		this.duration = options.duration || 250;
 		this.easing = options.easing || false;
+		this.easing = false;
 		this.starttime = null;
-		this.startStyles = window.getComputedStyle(element);
+		this.startStyles = Object.assign({}, window.getComputedStyle(element));
 
-		requestAnimationFrame(function (timestamp) {
-			_this.starttime = timestamp || new Date().getTime();
-			_this.animate(timestamp);
+		return new Promise(function (resolve) {
+			_this.resolve = resolve;
+
+			return requestAnimationFrame(function (timestamp) {
+				_this.starttime = timestamp || new Date().getTime();
+				return _this.animate(timestamp);
+			});
 		});
 	}
 
@@ -44,16 +49,18 @@ var AnimateElement = function () {
 				var val = property[1];
 				var unit = _this2.startStyles[key].indexOf('px') !== -1 ? 'px' : '';
 
-				var startValue = parseInt(_this2.startStyles[key], 10);
+				var startValue = parseFloat(_this2.startStyles[key]);
 				var newValue = startValue + (val - startValue) * (_this2.easing ? ease(progress) : progress);
 
 				_this2.element.style[key] = newValue + unit;
 			});
 
 			if (runtime < this.duration) {
-				requestAnimationFrame(function (timestamp) {
-					_this2.animate(timestamp);
+				return requestAnimationFrame(function (timestamp) {
+					return _this2.animate(timestamp);
 				});
+			} else {
+				this.resolve();
 			}
 		}
 	}]);
@@ -65,5 +72,5 @@ exports.default = AnimateElement;
 
 
 function ease(n) {
-	return .5 * (1 - Math.cos(Math.PI * n));
+	return --t * t * t + 1;
 }
