@@ -5,12 +5,17 @@ export default class AnimateElement {
 		this.properties  = properties;
 		this.duration    = options.duration || 250;
 		this.easing      = options.easing || false;
+		this.easing      = false;
 		this.starttime   = null;
-		this.startStyles = window.getComputedStyle(element);
+		this.startStyles = Object.assign({}, window.getComputedStyle(element));
 
-		requestAnimationFrame(timestamp => {
-			this.starttime = timestamp || new Date().getTime();
-			this.animate(timestamp);
+		return new Promise(resolve => {
+			this.resolve = resolve;
+
+			return requestAnimationFrame(timestamp => {
+				this.starttime = timestamp || new Date().getTime();
+				return this.animate(timestamp);
+			});
 		});
 	}
 
@@ -25,21 +30,23 @@ export default class AnimateElement {
 			let val  = property[1];
 			let unit = this.startStyles[key].indexOf('px') !== -1 ? 'px' : '';
 
-			let startValue = parseInt(this.startStyles[key], 10);
+			let startValue = parseFloat(this.startStyles[key]);
 			let newValue   = startValue + ((val - startValue) * (this.easing ? ease(progress) : progress));
 
 			this.element.style[key] = newValue + unit;
 		});
 
 		if (runtime < this.duration) {
-			requestAnimationFrame(timestamp => {
-				this.animate(timestamp);
+			return requestAnimationFrame(timestamp => {
+				return this.animate(timestamp);
 			});
+		} else {
+			this.resolve();
 		}
 	}
 
 }
 
 function ease(n) {
-	return .5 * (1 - Math.cos(Math.PI * n));
+	return (--t)*t*t+1;
 }
